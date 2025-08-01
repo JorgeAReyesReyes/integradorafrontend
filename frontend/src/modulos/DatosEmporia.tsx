@@ -15,7 +15,7 @@ interface DatoEnergia {
   percentage: number;
 }
 
-// 🔹 Canales esperados para mostrar en caso de datos vacíos
+// 🔹 Canales esperados para mostrar 
 const canalesEsperados = [
   { channel_num: 1, channel_name: "C14" },
   { channel_num: 2, channel_name: "C13" },
@@ -29,7 +29,7 @@ const canalesEsperados = [
   { channel_num: 10, channel_name: "Lab2" }
 ];
 
-// 🔹 Generar datos de ejemplo con ceros
+// 🔹 Generar datos con ceros
 const generarDatosCero = (): DatoEnergia[] => {
   const ahora = new Date().toISOString();
   return canalesEsperados.map((canal, index) => ({

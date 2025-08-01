@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-/* ===================== Configuración de axios ===================== */
+// Configuración de axios 
 const API = axios.create({
   baseURL: 'http://localhost:3001/api',
 });
 
-/* ===================== Tipos ===================== */
+// Tipos 
 export interface Horario {
   _id?: string;
   salon: string;
@@ -14,7 +14,7 @@ export interface Horario {
   finDate: string;
 }
 
-/* ===================== Peticiones ===================== */
+// Peticiones
 export const fetchHorarios = () => API.get<Horario[]>('/horarios');
 
 export const createHorario = (data: Horario) => API.post('/horarios', data);
@@ -26,8 +26,6 @@ export const deleteHorario = (id: string) => API.delete(`/horarios/${id}`);
 
 export const deleteHorariosPorSalon = (salon: string) =>
   API.delete(`/horarios/salon/${salon}`);
-
-/* ===================== Utilidades ===================== */
 
 /** Obtiene el nombre del día (Lunes, Martes, etc.) desde una fecha en formato ISO */
 export const obtenerDiaDesdeFecha = (fecha: string): string => {

@@ -160,7 +160,7 @@ const EdificioC = () => {
     { id: '16', salon: 'C5', planta: 'baja' },
   ];
 
-  // --- Función para cargar horarios desde backend ---
+  //Función para cargar horarios desde backend
   const cargarHorarios = async () => {
     try {
       const { data } = await axios.get<HorarioAPI[]>('http://localhost:3001/api/horarios');
@@ -242,7 +242,7 @@ const EdificioC = () => {
     cargarDatosBase();
   }, []);
 
-  // --- Función para actualizar estado de A/C con datos sensores Emporia ---
+  // Función para actualizar estado de A/C con datos sensores Emporia 
   const actualizarEstadoSensores = async () => {
     try {
       const { data } = await axios.get<{ channel_num: number; usage_W: number }[]>(
@@ -323,7 +323,7 @@ const EdificioC = () => {
     });
   }, [roomData, notificados]);
 
-  // --- Función para validar si el salón está ocupado según horario ---
+  // Función para validar si el salón está ocupado según horario 
   const isSalonOcupadoEnHorario = (salon: string) => {
     const ahora = new Date();
     const diaActual = ahora.toLocaleDateString('es-ES', { weekday: 'long' });
@@ -344,7 +344,7 @@ const EdificioC = () => {
     });
   };
 
-  // --- Función para determinar color según estado ---
+  // Función para determinar color según estado 
   const getColor = (estadoAire: string, estadoSalon: string, salon: string) => {
     const ocupadoAhora = isSalonOcupadoEnHorario(salon);
     const aireEncendido = estadoAire === 'Encendido';
@@ -355,7 +355,7 @@ const EdificioC = () => {
     return 'white';
   };
 
-  // --- Funciones para manejo de comentarios ---
+  // Funciones para manejo de comentarios 
   const cargarComentarios = async (salon: string) => {
     try {
       const res = await axios.get(`http://localhost:3001/api/comentarios/${salon}`);
